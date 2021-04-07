@@ -73,11 +73,12 @@ public class AuthPostDetailServlet extends HttpServlet {
             }else{
                 out.println("<script>alert('Error !!! You Have Added duplicate Movie  !!!')</script>");
                 userSession.setAttribute("message","Error !!! You Have Added duplicate Movie !!!" );
-                response.sendRedirect("admin/AdminHome.jsp");
+                response.sendRedirect("PostList.jsp");
             }
-        }else{
+        }
+        else{
             out.println("<script>alert('Write Movie Details Again !!!')</script>");
-            response.sendRedirect("AdminLogin.jsp");
+            response.sendRedirect("AuthPostDetail.jsp");
         }
     }
 }

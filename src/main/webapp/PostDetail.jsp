@@ -42,7 +42,7 @@
             </tr>
 <%--            <tr>--%>
 <%--                <td align="center"><a--%>
-<%--                        href="../BuyTicketServlet?movieId=<jsp:getProperty name="movie" property="movieId"/>">--%>
+<%--                        href="../BuyTicketServlet?movieId=<jsp:getProperty name="post" property="movieId"/>">--%>
 <%--                    <button type="button">Buy Tickets</button>--%>
 <%--                </a></td>--%>
 <%--            </tr>--%>

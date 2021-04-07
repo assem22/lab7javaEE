@@ -14,13 +14,16 @@
 </head>
 <%@ include file = "bodyStart.jsp" %>
 <div align="center" id="edit">
+	<h3 align="center">Posts</h3>
 	<table border="1">
 		<tr>
 			<th width="150">Post theme</th>
 			<th width="100">Post body</th>
 			<th width="200">Like</th>
 			<th width="80">Dislike</th>
-			<th width="80">Comment</th>
+			<th width="80">Comments</th>
+			<th width="80">Edit</th>
+			<th width="80">Delete</th>
 		</tr>
 		<%
 			for (Object obj : posts) {
@@ -35,11 +38,25 @@
 					href="AuthPostDetailServlet?postId=<%=post.getId()%>">
 				<button type="button">Comment</button>
 			</a></td>
+			<td align="center"><a
+					href="EditPostServlet?postId=<%=post.getId()%>">
+				<button type="button">Edit</button>
+			</a></td>
+			<td align="center"><a
+					href="DeletePostServlet?postId=<%=post.getId()%>">
+				<button type="button">Delete</button>
+			</a></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
+</div>
+<div align="center">
+	<a
+			href="AddPost.jsp">
+		<button type="button">New Post</button>
+	</a>
 </div>
 <%@ include file = "footer.jsp" %>
 

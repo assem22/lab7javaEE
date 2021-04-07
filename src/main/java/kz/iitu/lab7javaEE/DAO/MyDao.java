@@ -229,7 +229,7 @@ public class MyDao {
                 String sql = "UPDATE post SET likes = ?, dislikes = ? WHERE post_id = ?";
                 try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                     preparedStatement.setInt(1, post.getLikes());
-                    preparedStatement.setDouble(2, post.getDislikes());
+                    preparedStatement.setInt(2, post.getDislikes());
                     preparedStatement.setInt(3, post.getId());
                     preparedStatement.executeUpdate();
                 }
@@ -238,5 +238,71 @@ public class MyDao {
         catch(Exception ex){
             System.out.println(ex);
         }
+    }
+
+    public boolean updateEditedPost(Post post) {
+        try{
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, user, password)){
+
+                String sql = "UPDATE post SET theme = ?, body = ? WHERE post_id = ?";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setString(1, post.getTheme());
+                    preparedStatement.setString(2, post.getBody());
+                    preparedStatement.setInt(3, post.getId());
+                    preparedStatement.executeUpdate();
+
+                    return true;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false;
+    }
+
+    public boolean deletePost(int id) {
+
+        try{
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, user, password)){
+
+                String sql = "DELETE FROM post WHERE post_id = ?";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setInt(1, id);
+                    preparedStatement.executeUpdate();
+                    return true;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false;
+    }
+
+    public boolean createPost(Post post) {
+        try{
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, user, password)){
+
+                String sql = "INSERT INTO post (theme, body, likes, dislikes, user_id) Values (?, ?, ?, ?, ?)";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setString(1, post.getTheme());
+                    preparedStatement.setString(2, post.getBody());
+                    preparedStatement.setInt(3, post.getLikes());
+                    preparedStatement.setInt(4, post.getDislikes());
+                    preparedStatement.setInt(5, post.getUser_id());
+                    preparedStatement.executeUpdate();
+
+                    return true;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false;
     }
 }

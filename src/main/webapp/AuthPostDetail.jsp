@@ -34,21 +34,15 @@
             </tr>
             <tr>
                 <td>Likes :</td>
-                <td><jsp:getProperty name="post" property="likes"/> <button onclick="<jsp:setProperty name="post" property="likes" value="${post.likes+1}"/>">like</button></td>
+                <td><jsp:getProperty name="post" property="likes"/> <button type="button" onclick="<jsp:setProperty name="post" property="likes" value="${post.likes+1}"/>">like</button></td>
             </tr>
             <tr>
                 <td>Dislikes :</td>
-                <td><jsp:getProperty name="post" property="dislikes"/> <button onclick="<jsp:setProperty name="post" property="dislikes" value="${post.dislikes+1}"/>">dislike</button></td>
+                <td><jsp:getProperty name="post" property="dislikes"/> <button type="button" onclick="<jsp:setProperty name="post" property="dislikes" value="${post.dislikes+1}"/>">dislike</button></td>
             </tr>
-            <%--            <tr>--%>
-            <%--                <td align="center"><a--%>
-            <%--                        href="../BuyTicketServlet?movieId=<jsp:getProperty name="movie" property="movieId"/>">--%>
-            <%--                    <button type="button">Buy Tickets</button>--%>
-            <%--                </a></td>--%>
-            <%--            </tr>--%>
         </table>
         <br>
-        <table>
+        <table align="center">
             <tr>
                 <th width="150">User</th>
                 <th width="100">Comments</th>
