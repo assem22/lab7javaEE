@@ -61,7 +61,7 @@
         <div class="text-center">
             <button type="submit" class="btn btn-elegant">Sign in</button>
             <br>
-            <a href="registration.jsp" class="register" style="text-decoration: none;">Register</a>
+            <a href="registration.jsp" class="register" style="text-decoration: none; color: aliceblue">Register</a>
         </div>
     </form>
 </section>
